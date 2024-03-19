@@ -42,6 +42,7 @@ public class OnBoarding extends AppCompatActivity {
         });
 
 
+        // element Introducing ====================================
         viewPager = findViewById(R.id.viewPager2);
         dotsLayout = findViewById(R.id.linear_layout);
         buttonGetStart = findViewById(R.id.nextButton);
@@ -49,23 +50,27 @@ public class OnBoarding extends AppCompatActivity {
         nextBtn = findViewById(R.id.nextBtn);
 
 
+        // slider adapter object create and view page add adapter ----------------------
         sliderAdapter = new SliderAdapter(OnBoarding.this);
         viewPager.setAdapter(sliderAdapter);
 
-        // create dots ---------------------------------
+        // create dots  call---------------------------------
         createDots(0);
         viewPager.addOnPageChangeListener(onPageChangeListener);
 
+        // skip Button -------------------------------------
         skipButton.setOnClickListener(view -> {
             startActivity(new Intent(OnBoarding.this, MainActivity.class));
             finish();
         });
 
+        // get started button -------------------------------------
         buttonGetStart.setOnClickListener(view -> {
             startActivity(new Intent(OnBoarding.this, MainActivity.class));
             finish();
         });
 
+        // View Page increment ==========================
         nextBtn.setOnClickListener(view -> {
             viewPager.setCurrentItem(currentPosition+1);
         });
@@ -74,6 +79,7 @@ public class OnBoarding extends AppCompatActivity {
 
     }// end OnCreate -------------------------------------
 
+    // create Dots -------------------------------------
     private void createDots(int position){
 
         dotsText = new TextView[4];
@@ -94,6 +100,7 @@ public class OnBoarding extends AppCompatActivity {
 
     }
 
+    // View page OnPageChangeListener -------------------------------------------
     ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -107,6 +114,7 @@ public class OnBoarding extends AppCompatActivity {
             createDots(position);
             currentPosition = position;
 
+            // Let's get started button visibility add -----------------------
             if (position == 0){
                 buttonGetStart.setVisibility(View.INVISIBLE);
             } else if (position == 1) {

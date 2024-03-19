@@ -23,6 +23,7 @@ public class SliderAdapter extends PagerAdapter {
         this.context = context;
     }
 
+    // Image array ---------------------------------------
     int Images[] = {
             R.drawable.bills,
             R.drawable.clock,
@@ -31,6 +32,7 @@ public class SliderAdapter extends PagerAdapter {
 
     };
 
+    // header array ----------------------------------------
     int Headers[] ={
             R.string.headerOne,
             R.string.headerTwo,
@@ -38,6 +40,7 @@ public class SliderAdapter extends PagerAdapter {
             R.string.headerFour
     };
 
+    // description array ------------------------------------
     int Descriptions[] ={
             R.string.desOne,
             R.string.desTwo,
@@ -64,8 +67,10 @@ public class SliderAdapter extends PagerAdapter {
 
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
+        // Inflater view Create ---------------------------------------
         View view = layoutInflater.inflate(R.layout.slider_layout, container, false);
 
+        // element introduce -----------------------------------
         ImageView imageView = view.findViewById(R.id.imageView);
         TextView textView = view.findViewById(R.id.textView);
         TextView des = view.findViewById(R.id.TextDescription);
