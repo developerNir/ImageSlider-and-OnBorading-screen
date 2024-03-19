@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ImageSlideShow</string>
+
+    // Heading -----------------------------
+    <string name="getStart">Let\'s Get Start</string>
+    <string name="Skip">Skip</string>
+
+    <string name="headerOne">Promotions and Discounts</string>
+    <string name="headerTwo">Feedback and Ratings</string>
+    <string name="headerTree">Contact and Support</string>
+    <string name="headerFour">Call to Action</string>
+
+    // description ---------------------------------------
+    <string name="desOne">Encourage users to subscribe to newsletters or push notifications to stay updated on future offers</string>
+    <string name="desTwo">Invite users to provide feedback or rate their onboarding experience.</string>
+    <string name="desTree">Prompt users to create an account or log in to access additional features such as saved carts</string>
+    <string name="desFour">Conclude the onboarding process with a clear call to action, such as "Start Shopping" or</string>
+
+
+
+</resources>
