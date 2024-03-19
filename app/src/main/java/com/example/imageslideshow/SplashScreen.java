@@ -1,6 +1,7 @@
 package com.example.imageslideshow;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -15,6 +16,7 @@ import androidx.core.view.WindowInsetsControllerCompat;
 public class SplashScreen extends AppCompatActivity {
 
 
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -42,11 +44,37 @@ public class SplashScreen extends AppCompatActivity {
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
 
+
+
+
+
+
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, OnBoarding.class));
-                finish();
+
+                // sharePreference --------------------------------------
+                sharedPreferences = getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE);
+
+                Boolean firstTimeGet = sharedPreferences.getBoolean("firstTime", true);
+
+
+                if (firstTimeGet){
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("firstTime", false);
+                    editor.apply();
+
+                    startActivity(new Intent(SplashScreen.this, OnBoarding.class));
+                    finish();
+                }else {
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    finish();
+                }
+
+
             }
         }, 3000);
 
